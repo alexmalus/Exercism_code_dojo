@@ -1,18 +1,18 @@
 class SimpleCalculator
-  ALLOWED_OPERATIONS = ['+', '/', '*'].freeze
+  ALLOWED_OPERATIONS = %w[+ / *].freeze
 
   def self.calculate(first_operand, second_operand, operation)
-    raise UnsupportedOperation.new('Not supported') if !ALLOWED_OPERATIONS.include?(operation)
+    raise UnsupportedOperation, 'Not supported' unless ALLOWED_OPERATIONS.include?(operation)
+    raise ArgumentError unless [first_operand, second_operand].all? { |op| op.is_a?(Integer) }
 
     begin
-      first_operand.send(operation.to_sym, second_operand)
+      result = first_operand.send(operation.to_sym, second_operand)
+      "#{first_operand} #{operation} #{second_operand} = #{result}"
     rescue ZeroDivisionError
       'Division by zero is not allowed.'
     end
   end
-end
 
-class UnsupportedOperation < StandardError
+  class UnsupportedOperation < StandardError
+  end
 end
-
-print SimpleCalculator.calculate(22, 25, '+')

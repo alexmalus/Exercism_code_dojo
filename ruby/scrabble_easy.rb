@@ -20,3 +20,5 @@ class Scrabble
     word.scan(POINT_MATCHER).transpose.collect(&:join).each_with_index { |match, idx| @score += match.size * IDX_TO_POINT[idx] }
   end
 end
+
+puts(Scrabble.new('street').score == 6)

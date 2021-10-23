@@ -30,5 +30,5 @@ class WordProblem
   attr_reader :problem
 end
 
-problem = WordProblem.new("What is 52 cubed?")
+problem = WordProblem.new('What is 4 minus -12?')
 problem.answer

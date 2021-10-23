@@ -15,3 +15,7 @@ class Phrase
 
   attr_reader :words
 end
+
+phrase = Phrase.new('car: carpet as java: javascript!!&@$%^&')
+counts = { 'car' => 1, 'carpet' => 1, 'as' => 1, 'java' => 1, 'javascript' => 1 }
+puts(phrase.word_count == counts)

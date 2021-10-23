@@ -1,6 +1,6 @@
 class Year
   def self.leap?(year)
-    Date.leap?(year) ? true : false
+    Date.leap?(year)
   end
 
   class Date

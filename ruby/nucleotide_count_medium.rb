@@ -18,3 +18,5 @@ class Nucleotide
 
   attr_reader :histogram
 end
+
+puts(Nucleotide.from_dna('GGGGGTAACCCGG').count('T') == 1)
