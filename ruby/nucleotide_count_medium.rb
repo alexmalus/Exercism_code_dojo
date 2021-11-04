@@ -1,8 +1,8 @@
 class Nucleotide
-  VALID_NUCLEOTIDES = 'ATCG'.freeze
+  INVALID_NUCLEOTIDES = /[^ATCG]/
 
   def self.from_dna(dna)
-    raise ArgumentError if /[^#{VALID_NUCLEOTIDES}]/ =~ dna
+    raise ArgumentError if INVALID_NUCLEOTIDES =~ dna
 
     new(dna)
   end
@@ -18,5 +18,3 @@ class Nucleotide
 
   attr_reader :histogram
 end
-
-puts(Nucleotide.from_dna('GGGGGTAACCCGG').count('T') == 1)

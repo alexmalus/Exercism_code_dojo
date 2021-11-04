@@ -1,5 +1,5 @@
 # https://womanonrails.com/each-with-object
-
+# TOSELF, great example, so KEYWORDS: group_by | transform_values
 class Phrase
   MATCHER = /\b[\w']+\b/.freeze
 
